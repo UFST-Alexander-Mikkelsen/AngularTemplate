@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
  */
 @Injectable()
 export class Endpoints {
-
+    public readonly SEARCH360: string = 'search360';
     public readonly ACCOUNTS: string = 'accounts';
     public readonly CUSTOMERS: string = 'customers';
 }

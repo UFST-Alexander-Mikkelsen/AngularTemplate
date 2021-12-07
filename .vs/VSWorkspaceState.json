@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\modules",
+    "\\src\\app\\modules\\features",
+    "\\src\\app\\modules\\features\\customers",
+    "\\src\\app\\modules\\features\\customers\\pages",
+    "\\src\\app\\modules\\features\\search360",
+    "\\src\\app\\modules\\features\\search360\\pages",
+    "\\src\\app\\modules\\features\\search360\\reducers"
+  ],
+  "SelectedNode": "\\src\\app\\modules\\features\\search360\\search360.module.ts",
+  "PreviewInSolutionExplorer": false
+}

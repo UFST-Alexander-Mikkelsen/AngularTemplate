@@ -22,6 +22,7 @@ import { RouterSerializer } from './reducers/router-serializer';
 import { CustomersModule } from './modules/features/customers/customers.module';
 import { AccountsPageComponent } from './modules/features/accounts/pages/accounts-page/accounts-page.component';
 import { AccountsComponent } from './modules/features/accounts/components/accounts/accounts.component';
+import { Search360Module } from './modules/features/search360/search360.module';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AccountsComponent } from './modules/features/accounts/components/accoun
     AppRoutingModule,
     SharedModule,
     CustomersModule,
+    Search360Module,
     CoreModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({
