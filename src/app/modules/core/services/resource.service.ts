@@ -78,6 +78,8 @@ export abstract class ResourceService<T> {
 
   protected handleError(error: HttpErrorResponse) {
     // Handle the HTTP error here
+    console.log("Http handleError, error object=");
+    console.log(error);
     return throwError('Something wrong happened');
   }
 

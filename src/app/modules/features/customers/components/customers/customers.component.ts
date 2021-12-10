@@ -28,7 +28,7 @@ export class CustomersComponent implements OnInit {
     ];
 
     const columns: TableColumn[] = [
-      new TableColumn('customerId', false),
+      new TableColumn('personId', false),
       new TableColumn('firstName', false),
       new TableColumn('lastName', false),
       new TableColumn('phoneNumber', false),

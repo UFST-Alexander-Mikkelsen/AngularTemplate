@@ -9,7 +9,9 @@ import * as fromCustomers from '../../selectors/customer.selectors';
   styleUrls: ['./customers-page.component.scss']
 })
 export class CustomersPageComponent implements OnInit {
+
   customers$ = this.store.select(fromCustomers.selectCustomerList);
+
   constructor(
     private store: Store,
   ) { }

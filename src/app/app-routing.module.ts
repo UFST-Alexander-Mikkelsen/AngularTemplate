@@ -9,7 +9,16 @@ const routes: Routes = [
   {
     path: 'accounts',
     loadChildren: () => import('./modules/features/accounts/accounts-routing.module').then(m => m.AccountsRoutingModule)
+  },
+  {
+    path: 'search360',
+    loadChildren: () => import('./modules/features/search360/search360-routing.module').then(m => m.Search360RoutingModule)
+  },
+  {
+    path: 'account',
+    loadChildren: () => import('./modules/features/search360-overview/search360-overview-routing.module').then(m => m.Search360OverviewRoutingModule)
   }
+
 ];
 
 @NgModule({

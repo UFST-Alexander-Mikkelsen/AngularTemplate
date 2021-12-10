@@ -1,0 +1,39 @@
+<mat-tab-group mat-align-tabs="center" cols="2"  class="content">
+  <mat-tab label="Person - Account">
+    <mat-grid-list cols="2">
+
+      <mat-grid-tile>
+        <app-search360-overview-person [data]="search360OverviewAccount" class="card"></app-search360-overview-person>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <app-search360-overview-account class="card"></app-search360-overview-account>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <app-search360-overview-notes class="card"></app-search360-overview-notes>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <app-search360-overview-documents class="card"></app-search360-overview-documents>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <app-search360-overview-to-dos class="card"></app-search360-overview-to-dos>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+  </mat-tab>
+
+  <mat-tab label="Obligations">
+    Obligations
+  </mat-tab>
+
+  <mat-tab label="Financial Information">
+    Financial Information
+  </mat-tab>
+
+  <mat-tab label="Aging">
+    Aging
+  </mat-tab>
+</mat-tab-group>
