@@ -30,8 +30,7 @@ export class Search360ApiService extends ResourceService<ISearch360Result[]> {
       url = this.urls?.createUrlWithQueryParameters(this.endpoints?.SEARCH360BYTYPE + id);
     }
     else if (name.length > 0) {
-      const paramter = new HttpParams().set('name', name);
-      url = this.urls?.createUrlWithQueryParameters(this.endpoints?.SEARCH360BYNAME + paramter);
+      url = this.urls?.createUrlWithQueryParameters(this.endpoints?.SEARCH360BYNAME + name);
     }
 
     console.log(url);

@@ -10,11 +10,20 @@ import { Search360Observer } from '../../services/search360-observer';
 })
 export class Search360UserInputComponent implements OnInit {
 
-  public search360Form: ISearch360 = { id: '', name: '' };
+  public search360Form: ISearch360;
 
-  constructor(private search360Observer: Search360Observer) { }
+  constructor(private search360Observer: Search360Observer) {
+    this.search360Form = { id: '', name: '' };
+    console.log("Constructor");
+  }
 
   ngOnInit(): void {
+    console.log("OnInit");
+  }
+
+  ngOnDestroy(): void {
+    console.log("Destroy");
+    this.search360Form = { id: '', name: '' };
   }
 
   onSearch() {
