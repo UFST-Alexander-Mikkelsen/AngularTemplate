@@ -29,11 +29,11 @@ export class Search360Component implements OnInit {
     ];
 
     const colums: TableColumn[] = [
-      new TableColumn('personId', false, "link"),
+      new TableColumn('personId', false),
       new TableColumn('fullName', false),
       new TableColumn('idnbrType', false),
       new TableColumn('idNbr', false),
-      new TableColumn('link', false),
+      new TableColumn('link', false, "link"),
     ]
 
     return new Table(headers, colums, this.dataService)
@@ -47,7 +47,7 @@ export class Search360Component implements OnInit {
     this.data?.subscribe(data => {
       let initdata: ISearch360Result[] = [];
       data.forEach(element => {
-        const link = this.endpoints?.SEARCH360 + "/" + element.personId;
+        const link = this.endpoints?.ACCOUNT + element.personId;
         const newSearch360 = { ...element, link: link };
         initdata.push(newSearch360);
         console.log(newSearch360);

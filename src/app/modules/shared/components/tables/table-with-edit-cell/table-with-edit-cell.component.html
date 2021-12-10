@@ -10,7 +10,7 @@
                         <div class="editable">{{ data[col] }}</div>
                     </a>
                     <a *ngIf="!dataTable.isEditable(col)"
-                        [routerLink]="dataTable.hasLink(col) ? null : dataTable.columnLinks.get(col)">
+                        href="{{ data[col] }}" >
                         {{ data[col] }} {{dataTable.columnLinks.get(col)}}
                     </a>
                 </div>
