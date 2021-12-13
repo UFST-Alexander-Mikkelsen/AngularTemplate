@@ -14,15 +14,12 @@ export class Search360UserInputComponent implements OnInit {
 
   constructor(private search360Observer: Search360Observer) {
     this.search360Form = { id: '', name: '' };
-    console.log("Constructor");
   }
 
   ngOnInit(): void {
-    console.log("OnInit");
   }
 
   ngOnDestroy(): void {
-    console.log("Destroy");
     this.search360Form = { id: '', name: '' };
   }
 

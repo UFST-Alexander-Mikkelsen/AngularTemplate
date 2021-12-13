@@ -33,8 +33,6 @@ export class Search360ApiService extends ResourceService<ISearch360Result[]> {
       url = this.urls?.createUrlWithQueryParameters(this.endpoints?.SEARCH360BYNAME + name);
     }
 
-    console.log(url);
-
     return this.httpClient.get<ISearch360Result>(url)
       .pipe(
         map((item) => this.fromServerModel(item)),

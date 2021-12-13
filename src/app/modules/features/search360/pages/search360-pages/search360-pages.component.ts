@@ -37,6 +37,5 @@ export class Search360PagesComponent implements OnInit {
     search360.name.trim();
 
     this.store.dispatch(loadSearch360(search360));
-    console.log(this.store);
   }
 }

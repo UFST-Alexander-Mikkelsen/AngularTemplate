@@ -50,7 +50,6 @@ export class Search360Component implements OnInit {
         const link = this.endpoints?.ACCOUNT + element.personId;
         const newSearch360 = { ...element, link: link };
         initdata.push(newSearch360);
-        console.log(newSearch360);
       });
       this.dataService.setData(initdata);
     });
