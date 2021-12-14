@@ -7,7 +7,7 @@ const getSearch360State = createFeatureSelector<fromSearch360.State>(
 
 export const selectSearch360List = createSelector(
   getSearch360State,
-  state => state.search360Result
+  state => state.search360ResultWithPagination.search360Results
 )
 
 export const selectSearch360Error = createSelector(
@@ -24,8 +24,8 @@ export const selectAppComponentViewModel = createSelector(
   selectSearch360List,
   selectSearch360Error,
   getSearch360State,
-  (customers, error, loading) => ({
-    customers,
+  (search360, error, loading) => ({
+    search360,
     error,
     loading
   })

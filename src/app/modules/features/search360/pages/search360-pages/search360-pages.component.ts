@@ -33,9 +33,8 @@ export class Search360PagesComponent implements OnInit {
   }
 
   getSearch360(search360: ISearch360) {
-    search360.id.trim();
-    search360.name.trim();
 
-    this.store.dispatch(loadSearch360(search360));
+    // Update paginator
+    this.store.dispatch(loadSearch360({ search360 }));
   }
 }
