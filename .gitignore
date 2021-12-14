@@ -23,6 +23,7 @@ jsconfig.json
 
 # VSCode
 # https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
+.vs/
 .vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
