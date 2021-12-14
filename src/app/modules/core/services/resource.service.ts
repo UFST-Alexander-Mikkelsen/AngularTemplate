@@ -21,16 +21,16 @@ export abstract class ResourceService<T> {
     return json;
   }
 
-  getList(filter: string, index: number, page: number): Observable<T[]> {
+  getList(filter: string, index: number, page: number, params: HttpParams): Observable<T> {
     const url = this.getResourceUrl();
-    let params = new HttpParams()
-      .set('filter', filter)
+
+    params.set('filter', filter)
       .set('psize', index.toString())
       .set('page', page.toString());
 
     return this.httpClient.get<T[]>(`/${url}?${params.toString()}`)
       .pipe(
-        map((list) => list.map((item) => this.fromServerModel(item))),
+        map((list) => this.fromServerModel(list)),
         catchError(this.handleError)
       );
   }

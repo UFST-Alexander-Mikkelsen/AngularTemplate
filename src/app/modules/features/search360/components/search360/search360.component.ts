@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
 import { EditRowInfo } from 'src/app/modules/shared/models/edit-row-info';
 import { Endpoints } from '../../../../core/constants/endpoints';
@@ -41,6 +42,10 @@ export class Search360Component implements OnInit {
 
   update(editRowInfo: EditRowInfo) {
     console.warn(editRowInfo);
+  }
+
+  pagination(event: PageEvent) {
+    console.log(event);
   }
 
   ngOnInit(): void {
