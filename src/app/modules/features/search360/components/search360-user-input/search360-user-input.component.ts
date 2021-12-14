@@ -13,14 +13,14 @@ export class Search360UserInputComponent implements OnInit {
   public search360Form: ISearch360;
 
   constructor(private search360Observer: Search360Observer) {
-    this.search360Form = { id: '', name: '' };
+    this.search360Form = { id: '', name: '', pageIndex: 0, pageSize: 10, type: "" };
   }
 
   ngOnInit(): void {
   }
 
   ngOnDestroy(): void {
-    this.search360Form = { id: '', name: '' };
+    this.search360Form = { id: '', name: '', pageIndex: 0, pageSize: 10, type:"" };
   }
 
   onSearch() {
@@ -28,6 +28,10 @@ export class Search360UserInputComponent implements OnInit {
     this.search360Form.name.trim();
 
     if (!isEmpty(this.search360Form.id) || !isEmpty(this.search360Form.name)) {
+      if (this.search360Form.name == "%") {
+        this.search360Form.name = "";
+      }
+
       this.search360Observer.onNewSearch360(this.search360Form);
     }
   }

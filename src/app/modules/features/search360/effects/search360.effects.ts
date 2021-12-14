@@ -4,6 +4,7 @@ import { Search360ApiService } from '../services/search360-api.service';
 import * as Search360Action from '../actions/search360.actions';
 import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
+import { HttpParams } from '@angular/common/http';
 
 
 
@@ -20,9 +21,9 @@ export class Search360Effects {
       this.actions$.pipe(
         ofType(Search360Action.loadSearch360),
         mergeMap((action) =>
-          this.search360ApiService$.getSearch360(action.id, action.name).pipe(
-            map(search360Result =>
-              Search360Action.loadSearch360Success({ search360Result })
+          this.search360ApiService$.getList("", action.search360.pageIndex, action.search360.pageSize, new HttpParams().set('id',action.search360.id).set('name',action.search360.name).set('type',action.search360.type)).pipe(
+            map(search360ResultWithPagination =>
+              Search360Action.loadSearch360Success({ search360ResultWithPagination })
             ),
             catchError(error => of(Search360Action.load360Failure({ error: error })))
           )
