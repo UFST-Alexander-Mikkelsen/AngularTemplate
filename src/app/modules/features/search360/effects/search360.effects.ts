@@ -14,19 +14,23 @@ export class Search360Effects {
   constructor(
     private actions$: Actions,
     private search360ApiService$: Search360ApiService
-  ) {}
+  ) { }
 
   loadSearch360s$ =
     createEffect(() =>
       this.actions$.pipe(
         ofType(Search360Action.loadSearch360),
         mergeMap((action) =>
-          this.search360ApiService$.getList("", action.search360.pageIndex, action.search360.pageSize, new HttpParams().set('id',action.search360.id).set('name',action.search360.name).set('type',action.search360.type)).pipe(
-            map(search360ResultWithPagination =>
-              Search360Action.loadSearch360Success({ search360ResultWithPagination })
-            ),
-            catchError(error => of(Search360Action.load360Failure({ error: error })))
-          )
-        ))
-    );
+          this.search360ApiService$.getList(action.search360.url,
+            new HttpParams()
+              .set('types', action.search360.types)
+              .set('size', action.search360.size.toString())
+              .set('page', action.search360.page.toString())).pipe(
+                  map(search360ResultWithPagination =>
+                    Search360Action.loadSearch360Success({ search360ResultWithPagination })
+                  ),
+                  catchError(error => of(Search360Action.load360Failure({ error: error })))
+                )
+              ))
+        );
 }

@@ -20,27 +20,27 @@ export class Search360ApiService extends ResourceService<ISearch360ResultWithPag
     super(httpClient);
   }
 
-  getSearch360(id: string, name: string): Observable<ISearch360Result[]> {
-    id.trim();
-    name.trim();
+  //getSearch360(id: string, name: string): Observable<ISearch360Result[]> {
+  //  id.trim();
+  //  name.trim();
 
-    let url: string = '';
+  //  let url: string = '';
 
-    if (id.length > 0) {
-      url = this.urls?.createUrlWithQueryParameters(this.endpoints?.SEARCH360BYTYPE + id);
-    }
-    else if (name.length > 0) {
-      url = this.urls?.createUrlWithQueryParameters(this.endpoints?.SEARCH360BYNAME + name);
+  //  if (id.length > 0) {
+  //    url = this.urls?.createUrlWithQueryParameters(this.endpoints?.SEARCH360BYTYPE + id);
+  //  }
+  //  else if (name.length > 0) {
+  //    url = this.urls?.createUrlWithQueryParameters(this.endpoints?.SEARCH360BYNAME + name);
       
-    }
+  //  }
 
-    console.log(url);
-    return this.httpClient.get<ISearch360Result>(url)
-      .pipe(
-        map((item) => this.fromServerModel(item)),
-        catchError(this.handleError)
-      );
-  }
+  //  console.log(url);
+  //  return this.httpClient.get<ISearch360Result>(url)
+  //    .pipe(
+  //      map((item) => this.fromServerModel(item)),
+  //      catchError(this.handleError)
+  //    );
+  //}
 
   getResourceUrl(): string {
     return this.urls?.createUrl(this.endpoints?.SEARCH360BYNAME);

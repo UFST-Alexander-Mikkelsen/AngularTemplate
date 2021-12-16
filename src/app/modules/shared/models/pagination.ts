@@ -1,10 +1,10 @@
 export interface PaginationSend {
-  pageSize: number,
-  pageIndex: number,
+  size: number,
+  page: number,
 }
 
 export interface PaginationReceived {
-  pageSize: number,
-  pageIndex: number,
-  total:number,
+  size: number,
+  number: number,
+  totalElements: number,
 }

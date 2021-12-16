@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
@@ -15,6 +15,7 @@ import { EditCellComponent } from './edit-cell/edit-cell.component';
 })
 export class TableWithEditCellComponent<T> implements OnInit, OnDestroy {
   private subscriptions: Subscription[] = [];
+  @Output() pagination: EventEmitter<PageEvent> = new EventEmitter<PageEvent>();
   @Output() clicked: EventEmitter<T> = new EventEmitter<T>();
   @Output() update: EventEmitter<EditRowInfo> = new EventEmitter<EditRowInfo>();
   @Input()
@@ -42,6 +43,11 @@ export class TableWithEditCellComponent<T> implements OnInit, OnDestroy {
 
     this.clicked.emit(data);
 
+  }
+
+  public onPagination(event: PageEvent) {
+
+    this.pagination.emit(event);
   }
 
   public openDialog(row: any, col: string, event: MouseEvent, i: number) {

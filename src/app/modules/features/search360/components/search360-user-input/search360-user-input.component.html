@@ -1,6 +1,6 @@
 <mat-card class="container">
 
-  <form class="example-form">
+  <div class="example-form">
     <mat-form-field class="full-width" appearance="fill">
       <mat-label>Name</mat-label>
       <input matInput placeholder="Navn på skylden eller fordringshaver..." [(ngModel)]="search360Form.name" name="name">
@@ -11,8 +11,17 @@
       <input matInput placeholder="Skyldner id eller fordring id..." [(ngModel)]="search360Form.id" name="id">
     </mat-form-field>
 
+
+    <section [formGroup]="types">
+      <h4>Search Filter</h4>
+      <p><mat-checkbox formControlName="cpr">CPR.</mat-checkbox></p>
+      <p><mat-checkbox formControlName="cvr">CVR.</mat-checkbox></p>
+      <p><mat-checkbox formControlName="se">SE.</mat-checkbox></p>
+    </section>
+
+
     <button mat-raised-button color="primary" (click)="onSearch()">Søg</button>
-  </form>
+  </div>
 </mat-card>
 
 <div class="table-wrapper">

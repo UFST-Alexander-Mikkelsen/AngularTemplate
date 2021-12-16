@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { CreateUrlService } from './create-url.service';
+import { Endpoints } from '../constants/endpoints';
 
 @Injectable({
   providedIn: 'root'
@@ -21,12 +23,7 @@ export abstract class ResourceService<T> {
     return json;
   }
 
-  getList(filter: string, index: number, page: number, params: HttpParams): Observable<T> {
-    const url = this.getResourceUrl();
-
-    params.set('filter', filter)
-      .set('psize', index.toString())
-      .set('page', page.toString());
+  getList(url: string, params: HttpParams): Observable<T> {
 
     return this.httpClient.get<T[]>(`/${url}?${params.toString()}`)
       .pipe(

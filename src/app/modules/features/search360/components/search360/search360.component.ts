@@ -5,6 +5,7 @@ import { EditRowInfo } from 'src/app/modules/shared/models/edit-row-info';
 import { Endpoints } from '../../../../core/constants/endpoints';
 import { Table, TableColumn, TableHeader } from '../../../../shared/models/table';
 import { TableService } from '../../../../shared/services/tables/table.service';
+import { ISearch360 } from '../../models/search360';
 import { ISearch360Result } from '../../models/search360-result';
 
 @Component({
@@ -15,6 +16,8 @@ import { ISearch360Result } from '../../models/search360-result';
 export class Search360Component implements OnInit {
   @Input()
   data!: Observable<ISearch360Result[]>;
+  @Input()
+  currentPage?: ISearch360;
 
   constructor(private dataService: TableService<ISearch360Result>,
     private endpoints: Endpoints) {
@@ -51,11 +54,12 @@ export class Search360Component implements OnInit {
   ngOnInit(): void {
     this.data?.subscribe(data => {
       let initdata: ISearch360Result[] = [];
-      data.forEach(element => {
+      data?.forEach(element => {
         const link = this.endpoints?.ACCOUNT + element.personId;
         const newSearch360 = { ...element, link: link };
         initdata.push(newSearch360);
       });
+
       this.dataService.setData(initdata);
     });
   }

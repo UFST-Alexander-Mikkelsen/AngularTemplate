@@ -16,7 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     TableWithEditCellComponent,
-    EditCellComponent
+    EditCellComponent,
   ],
   imports: [
     ReactiveFormsModule,

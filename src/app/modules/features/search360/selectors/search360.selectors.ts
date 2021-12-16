@@ -7,7 +7,12 @@ const getSearch360State = createFeatureSelector<fromSearch360.State>(
 
 export const selectSearch360List = createSelector(
   getSearch360State,
-  state => state.search360ResultWithPagination.search360Results
+  state => state.search360ResultWithPagination.content
+)
+
+export const selectSearch360ResultWithPagination = createSelector(
+  getSearch360State,
+  state => state.search360ResultWithPagination
 )
 
 export const selectSearch360Error = createSelector(

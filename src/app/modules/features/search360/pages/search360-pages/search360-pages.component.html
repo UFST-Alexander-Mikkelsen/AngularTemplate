@@ -1,2 +1,33 @@
+<!--<app-search360 *ngIf="search360Results$" [data]="search360Results$" [currentPage]="currentPage$"></app-search360>-->
+<mat-table [dataSource]="dataSource$">
+  <!-- column definitions -->
+  <ng-container matColumnDef="personId">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let search360"> <a href="/account/{{search360.personId}}">{{search360.personId}}</a></mat-cell>
+  </ng-container>
 
-<app-search360 *ngIf="search360Results$" [data]="search360Results$"></app-search360>
+  <ng-container matColumnDef="fullName">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> FullName </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let search360"> {{search360.fullName}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="idNbrType">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let search360"> {{search360.idNbrType}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="idNbr">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Type ID </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let search360"> {{search360.idNbr }} </mat-cell>
+  </ng-container>
+
+  <mat-header-row mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;">
+  </mat-row>
+</mat-table>
+
+<mat-paginator *ngIf="dataSource$.page$ | async as page"
+               [length]="page.totalElements" [pageSize]="page.size"
+               [pageIndex]="page.number" [pageSizeOptions]=" [25, 50, 100]"
+               (page)="fetch($event)">
+</mat-paginator>
