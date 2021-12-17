@@ -9,7 +9,7 @@ export const loadSearch360 = createAction(
 );
 
 export const loadSearch360Success = createAction(
-  '[Person] Load Search 360 Success',
+  '[Search360] Load Search 360 Success',
   props<{ search360ResultWithPagination: Page<ISearch360Result> }>()
 );
 

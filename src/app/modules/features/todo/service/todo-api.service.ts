@@ -2,13 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Endpoints } from '../../../core/constants/endpoints';
 import { ResourceService } from '../../../core/services/resource.service';
-import { IObligationResultWithPagination } from '../models/obligation';
+import { ITodoResultWithPagination } from '../models/todo';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ObligationsApiService extends ResourceService<IObligationResultWithPagination> {
-  
+export class TodoApiService extends ResourceService<ITodoResultWithPagination> {
+
 
   constructor(http: HttpClient,
     private endpoint: Endpoints) {
@@ -17,6 +17,6 @@ export class ObligationsApiService extends ResourceService<IObligationResultWith
 
 
   getResourceUrl(): string {
-    return this.endpoint?.OBLIGATIONS;
+    return this.endpoint?.TODOS;
   }
 }

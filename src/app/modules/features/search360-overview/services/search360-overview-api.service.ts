@@ -15,6 +15,8 @@ export class Search360OverviewApiService {
     private urls: CreateUrlService,
   ) { }
 
+  
+
   getSearch360OverviewAccount(): ISearch360OverviewAccount {
     return {
       cprNumber: "080998-2010",

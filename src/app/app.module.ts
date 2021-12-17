@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +24,8 @@ import { AccountsPageComponent } from './modules/features/accounts/pages/account
 import { AccountsComponent } from './modules/features/accounts/components/accounts/accounts.component';
 import { Search360Module } from './modules/features/search360/search360.module';
 import { Search360OverviewModule } from './modules/features/search360-overview/search360-overview.module';
+import { ObligationsModule } from './modules/features/obligations/obligations.module';
+import { TodoModule } from './modules/features/todo/todo.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { Search360OverviewModule } from './modules/features/search360-overview/s
     SharedModule,
     CustomersModule,
     Search360Module,
+    ObligationsModule,
     Search360OverviewModule,
+    TodoModule,
     CoreModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({
@@ -54,7 +58,7 @@ import { Search360OverviewModule } from './modules/features/search360-overview/s
       serializer: RouterSerializer,
     }),
   ],
-  providers: [Endpoints, SidenavService],
+  providers: [Endpoints, SidenavService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

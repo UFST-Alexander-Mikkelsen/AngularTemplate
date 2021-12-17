@@ -3,7 +3,7 @@
   <!-- column definitions -->
   <ng-container matColumnDef="personId">
     <mat-header-cell mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-    <mat-cell mat-cell *matCellDef="let search360"> <a href="/account/{{search360.personId}}">{{search360.personId}}</a></mat-cell>
+    <mat-cell mat-cell *matCellDef="let search360"> <a href="/account/{{search360.personId}}/{{search360.accountId}}">{{search360.personId}}</a></mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="fullName">

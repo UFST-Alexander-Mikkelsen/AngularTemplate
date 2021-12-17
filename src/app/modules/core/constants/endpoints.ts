@@ -13,4 +13,6 @@ export class Endpoints {
   public readonly SEARCH360BYTYPE: string = 'api/person/search/personid/';
   public readonly SEARCH360BYNAME: string = 'api/person/search/name/';
   public readonly SEARCH360: string = 'api/person/search';
+  public readonly OBLIGATIONS: string = 'api/claim/search/accountid/';
+  public readonly TODOS: string = 'api/todo/search/personid/';
 }

@@ -28,7 +28,7 @@ export class Search360PagesComponent implements OnInit {
     private store: Store<ISearch360Result[]>,
     private search360Observer: Search360Observer,
   ) {
-    this.dataSource$.pageEvent.subscribe((event) =>
+    this.dataSource$.pageEvent$.subscribe((event) =>
       this.fetch(event)
     );
 

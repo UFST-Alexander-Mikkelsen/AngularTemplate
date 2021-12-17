@@ -1,1 +1,67 @@
-<p>obligation-pages works!</p>
+<mat-table [dataSource]="dataSource$">
+  <!-- column definitions -->
+  <ng-container matColumnDef="personId">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let obligation"></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="claimId">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let obligation"> {{obligation.claimId}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="externalClaimId">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> External Claim ID </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let obligation"> {{obligation.externalClaimId}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fordringsTypeKode">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Fordrings Type Kode </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let obligation"> {{obligation.fordringsTypeKode }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fordringshaverRef">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Fordrings Haver Ref </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let obligation"> {{obligation.fordringshaverRef }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="originalAmount">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Original Amount </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let obligation"> {{obligation.originalAmount  | currency:"DKK":"kr."}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="currentAmount">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Current Amount </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let obligation"> {{obligation.currentAmount | currency:"DKK":"kr."}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fordringFrom">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Fordring From </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let obligation"> {{obligation.fordringFrom }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fordringTo">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Fordring To </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let obligation"> {{obligation.fordringTo }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="stiftelse">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Stiftelse </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let obligation"> {{obligation.stiftelse | date:'d/M/y' }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="modtagelsesTidspunkt">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Modtagelses Tidspunkt </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let obligation"> {{obligation.modtagelsesTidspunkt | date:'d/M/y' }} </mat-cell>
+  </ng-container>
+
+  <mat-header-row mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;">
+  </mat-row>
+</mat-table>
+
+<mat-paginator *ngIf="dataSource$.page$ | async as page"
+               [length]="page.totalElements" [pageSize]="page.size"
+               [pageIndex]="page.number" [pageSizeOptions]=" [25, 50, 100]"
+               (page)="fetchNewPage($event)">
+</mat-paginator>

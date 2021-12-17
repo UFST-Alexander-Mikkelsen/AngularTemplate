@@ -4,6 +4,7 @@ import { ObligationsApiService } from '../services/obligations-api.service';
 import * as ObligationsAction from '../actions/obligations.actions';
 import { of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
+import { HttpParams } from '@angular/common/http';
 
 
 
@@ -20,11 +21,13 @@ export class ObligationEffects {
       this.actions$.pipe(
         ofType(ObligationsAction.loadObligations),
         mergeMap((action) =>
-          this.obligationsApiService.getList(action.id).pipe(
-            map(search360Result =>
-              Search360Action.loadSearch360Success({ search360Result })
-            ),
-            catchError(error => of(Search360Action.load360Failure({ error: error })))
+          this.obligationsApiService.getList(action.obligation.url, new HttpParams()
+            .set('size', action.obligation.size.toString())
+            .set('page', action.obligation.page.toString())).pipe(
+              map(obligationResultWithPagination =>
+                ObligationsAction.loadObligationsSuccess({ obligationResultWithPagination })
+              ),
+              catchError(error => of(ObligationsAction.loadObligationsFailure({ error: error })))
           )
         ))
     );

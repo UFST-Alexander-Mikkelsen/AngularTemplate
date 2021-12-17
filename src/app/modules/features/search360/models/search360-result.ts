@@ -9,5 +9,6 @@ export interface ISearch360Result {
   idNbrType: string;
   idNbr: string;
   personId: string;
+  accountId: string;
   link: string;
 }

@@ -1,13 +1,15 @@
 import { createAction, props } from '@ngrx/store';
-import { Obligation } from '../../obligations/models/obligation';
+import { Page } from '../../../shared/models/simple-table/simple-data-source';
+import { IObligation, IObligationResult } from '../../obligations/models/obligation';
 
 export const loadObligations = createAction(
-  '[Obligations] Load Obligations'
+  '[Obligations] Load Obligations',
+  props<{ obligation: IObligation }>()
 );
 
 export const loadObligationsSuccess = createAction(
   '[Obligations] Load Obligations Success',
-  props<{ Obligations: Obligation[] }>()
+  props<{ obligationResultWithPagination: Page<IObligationResult> }>()
 );
 
 export const loadObligationsFailure = createAction(

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-search360-overview-to-dos',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search360-overview-to-dos.component.scss']
 })
 export class Search360OverviewToDosComponent implements OnInit {
-
+  @Input()
+  accountId :string ='';
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

@@ -1,37 +1,37 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { Page } from '../../../shared/models/simple-table/simple-data-source';
-import * as Obligations from '../actions/obligations.actions';
-import { IObligationResult } from '../models/obligation';
+import * as Todo from '../actions/todo.actions';
+import { ITodoResult } from '../models/todo';
 
-export const obligationFeatureKey = 'obligation';
+export const todoFeatureKey = 'todo';
 
 export interface State {
-  obligationResultWithPagination: Page<IObligationResult>;
+  todoResultWithPagination: Page<ITodoResult>;
   isLoading: boolean;
   error: string;
 }
 
 export const initialState: State = {
-  obligationResultWithPagination: {} as Page<IObligationResult>,
+  todoResultWithPagination: { content: [], number: 0, size: 0, totalElements:0 } as Page<ITodoResult>,
   isLoading: false,
   error: ''
 };
 
 export const obligationReducer = createReducer(
   initialState, on(
-    Obligations.loadObligations,
+    Todo.loadTodos,
     (state) => ({ ...state, isLoading: true, error: '' })
   ),
   on(
-    Obligations.loadObligationsSuccess,
-    (state, { obligationResultWithPagination }) => ({
+    Todo.loadTodosSuccess,
+    (state, { todoResultWithPagination }) => ({
       ...state,
-      obligationResultWithPagination,
+      todoResultWithPagination,
       isLoading: false
     })
   ),
   on(
-    Obligations.loadObligationsFailure,
+    Todo.loadTodosFailure,
     (state, { error }) => ({
       ...state,
       error,

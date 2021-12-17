@@ -73,6 +73,10 @@ export class Search360UserInputComponent implements OnInit {
     if (this.types.controls["se"].value) {
       types += "SE,";
     }
+    // none is selected search all
+    if (!this.types.controls["se"].value && !this.types.controls["cpr"].value && !this.types.controls["cvr"].value) {
+      types += "CPR,CVR,SE";
+    }
     return types;
   }
 }

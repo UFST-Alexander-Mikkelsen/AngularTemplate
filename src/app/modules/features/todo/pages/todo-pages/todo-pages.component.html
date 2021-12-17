@@ -1,0 +1,47 @@
+<mat-table [dataSource]="dataSource$">
+  <!-- column definitions -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let todo"> {{todo.id}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="assignedTo">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> External Claim ID </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let todo"> {{todo.assignedTo}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="tdTypeCd">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Fordrings Type Kode </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let todo"> {{todo.tdTypeCd }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="entryStatusFlg">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Fordrings Haver Ref </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let todo"> {{todo.entryStatusFlg }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="comments">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Original Amount </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let todo"> {{todo.comments}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Current Amount </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let todo"> {{todo.description}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="tdPriorityFlg">
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Current Amount </mat-header-cell>
+    <mat-cell mat-cell *matCellDef="let todo"> {{todo.tdPriorityFlg}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;">
+  </mat-row>
+</mat-table>
+
+<mat-paginator *ngIf="dataSource$.page$ | async as page"
+               [length]="page.totalElements" [pageSize]="page.size"
+               [pageIndex]="page.number" [pageSizeOptions]=" [25, 50, 100]"
+               (page)="fetchNewPage($event)">
+</mat-paginator>

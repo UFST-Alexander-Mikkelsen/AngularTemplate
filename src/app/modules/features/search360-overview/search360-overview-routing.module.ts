@@ -4,7 +4,7 @@ import { Search360OverviewPagesComponent } from './pages/search360-overview-page
 
 const routes: Routes = [
   {
-    path: 'account/:id',
+    path: 'account/:personId/:accountId',
     component: Search360OverviewPagesComponent
   }
 ];

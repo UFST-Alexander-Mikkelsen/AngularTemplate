@@ -7,7 +7,12 @@ const getObligationState = createFeatureSelector<fromObligation.State>(
 
 export const selectObligationList = createSelector(
   getObligationState,
-  state => state.Obligations
+  state => state.obligationResultWithPagination.content
+)
+
+export const selectObligationListWithPagination = createSelector(
+  getObligationState,
+  state => state.obligationResultWithPagination
 )
 
 export const selectObligationError = createSelector(
