@@ -24,6 +24,8 @@ import { AccountsPageComponent } from './modules/features/accounts/pages/account
 import { AccountsComponent } from './modules/features/accounts/components/accounts/accounts.component';
 import { Search360Module } from './modules/features/search360/search360.module';
 import { Search360OverviewModule } from './modules/features/search360-overview/search360-overview.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { Search360OverviewModule } from './modules/features/search360-overview/s
     CustomersModule,
     Search360Module,
     Search360OverviewModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
     CoreModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({
