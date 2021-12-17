@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatTableModule,
     MatCheckboxModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
   ]
 })
 export class Search360Module { }

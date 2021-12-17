@@ -8,11 +8,14 @@ import { Page, SimpleDataSource } from "./simple-data-source";
 export class Table<T> implements SimpleDataSource<T>{
   public pageEvent$ = new Subject<PageEvent>();
   public page$: Observable<Page<T>>;
-  public isLoading$ = new Subject<Boolean>();
+  public isLoading$: Observable<Boolean>;
+  
 
   constructor(
-    page$: Observable<Page<T>>) {
+    page$: Observable<Page<T>>,
+    isLoading$: Observable<Boolean>) {
     this.page$ = page$;
+    this.isLoading$ = isLoading$;
   }
 
   fetch(event: PageEvent): void {

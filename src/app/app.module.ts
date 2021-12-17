@@ -28,6 +28,7 @@ import { ObligationsModule } from './modules/features/obligations/obligations.mo
 import { TodoModule } from './modules/features/todo/todo.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { PersonsRoutingModule } from './modules/features/persons/persons-routing.module';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     ObligationsModule,
     Search360OverviewModule,
     TodoModule,
+    PersonsRoutingModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
     CoreModule,

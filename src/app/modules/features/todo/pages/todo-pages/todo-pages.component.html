@@ -1,3 +1,4 @@
+<mat-progress-spinner mode="indeterminate" *ngIf="dataSource$.isLoading$ | async" diameter='30'></mat-progress-spinner>
 <mat-table [dataSource]="dataSource$">
   <!-- column definitions -->
   <ng-container matColumnDef="id">

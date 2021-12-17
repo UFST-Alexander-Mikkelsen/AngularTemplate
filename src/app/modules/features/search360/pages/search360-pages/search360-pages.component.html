@@ -1,4 +1,4 @@
-<!--<app-search360 *ngIf="search360Results$" [data]="search360Results$" [currentPage]="currentPage$"></app-search360>-->
+<mat-progress-spinner mode="indeterminate" *ngIf="dataSource$.isLoading$ | async" diameter='30'></mat-progress-spinner>
 <mat-table [dataSource]="dataSource$">
   <!-- column definitions -->
   <ng-container matColumnDef="personId">

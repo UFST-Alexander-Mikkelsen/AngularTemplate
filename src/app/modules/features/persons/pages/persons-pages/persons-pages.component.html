@@ -1,0 +1,19 @@
+<mat-grid-list cols="4" rowHeight="2:1" *ngIf="data$ && data$.person">
+  <mat-grid-tile><h3 class="person-overview" *ngIf="data$.person.idNumbers">CPR-Nummer</h3></mat-grid-tile>
+  <mat-grid-tile><h3 class="person-overview" *ngIf="data$.person.idNumbers">{{data$.person.idNumbers[0].personIdNumberPK?.id || 'hjælp Karsten jeg er ikke blevet sat :('}}</h3></mat-grid-tile>
+
+  <mat-grid-tile><h3 class="person-overview">Deptor ID</h3></mat-grid-tile>
+  <mat-grid-tile><h3 class="person-overview">{{data$.person?.personId || 'hjælp Karsten jeg er ikke blevet sat :(' }}</h3></mat-grid-tile>
+
+  <mat-grid-tile><h3 class="person-overview" *ngIf="data$.person.idNumbers">Name</h3></mat-grid-tile>
+  <mat-grid-tile><h3 class="person-overview" *ngIf="data$.person.names">{{data$.person.names[0]?.fullName || 'hjælp Karsten jeg er ikke blevet sat :(' }}</h3></mat-grid-tile>
+
+  <mat-grid-tile><h3 class="person-overview">Current Balance</h3></mat-grid-tile>
+  <mat-grid-tile><h3 class="person-overview">{{data$?.totalSaldo || 'hjælp Karsten jeg er ikke blevet sat :('}}</h3></mat-grid-tile>
+
+  <mat-grid-tile><h3 class="person-overview">Payment Ability</h3></mat-grid-tile>
+  <mat-grid-tile><h3 class="person-overview">{{data$?.betalingsEvne || 'hjælp Karsten jeg er ikke blevet sat :(' }}</h3></mat-grid-tile>
+
+  <mat-grid-tile><h3 class="person-overview">Calculated Payment Ability</h3></mat-grid-tile>
+  <mat-grid-tile><h3 class="person-overview">{{data$?.betalingsEvneCalc }}</h3></mat-grid-tile>
+</mat-grid-list>

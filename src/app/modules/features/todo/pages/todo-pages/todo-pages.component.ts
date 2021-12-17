@@ -17,7 +17,7 @@ export class TodoPagesComponent implements OnInit {
   @Input() id: string = '';
   currentPage$: ITodo = { url: '', id: '', page: 0, size: 25 };
   displayedColumns = ['id', 'assignedTo', 'tdTypeCd', 'entryStatusFlg', 'comments', 'description', 'tdPriorityFlg'];
-  dataSource$ = new Table<ITodoResult>(this.store.select(fromTodo.selectTodoListWithPagination));
+  dataSource$ = new Table<ITodoResult>(this.store.select(fromTodo.selectTodoListWithPagination), this.store.select(fromTodo.selectTodoIsLoading));
 
   constructor(private store: Store<ITodoResult[]>, private todoApiService: TodoApiService) {
     this.dataSource$.pageEvent$.subscribe((event) => this.fetchNewPage(event));
@@ -32,6 +32,8 @@ export class TodoPagesComponent implements OnInit {
   fetchNewPage(event: PageEvent) {
     this.currentPage$.page = event.pageIndex;
     this.currentPage$.size = event.pageSize;
+
+    this.getTodo();
   }
 
   getTodo() {

@@ -13,6 +13,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatCheckboxModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
   ],
   exports: [
     ObligationsComponent,

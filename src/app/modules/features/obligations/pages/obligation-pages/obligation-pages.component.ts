@@ -16,7 +16,7 @@ export class ObligationPagesComponent implements OnInit {
   @Input() id: string ='';
   currentPage$: IObligation = { url: '', id: '', page: 0, size: 25 };
   displayedColumns = ['claimId', 'externalClaimId', 'fordringsTypeKode', 'fordringshaverRef', 'originalAmount', 'currentAmount', 'fordringFrom', 'fordringTo', 'stiftelse', 'modtagelsesTidspunkt'];
-  dataSource$ = new Table<IObligationResult>(this.store.select(fromObligation.selectObligationListWithPagination));
+  dataSource$ = new Table<IObligationResult>(this.store.select(fromObligation.selectObligationListWithPagination), this.store.select(fromObligation.selectObligationIsLoading));
 
   constructor(private store: Store<IObligationResult[]>, private obligationsApiService: ObligationsApiService)
   {
@@ -32,12 +32,13 @@ export class ObligationPagesComponent implements OnInit {
   fetchNewPage(event: PageEvent) {
     this.currentPage$.page = event.pageIndex;
     this.currentPage$.size = event.pageSize;
+
+    this.getObligation();
   }
 
   getObligation() {
     let obligation: IObligation = Object.assign({}, this.currentPage$);
     this.store.dispatch(loadObligations({ obligation }));
-    console.log("Obligation ", this.dataSource$.page$);
   }
 
 }

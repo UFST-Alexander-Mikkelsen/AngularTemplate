@@ -1,44 +1,4 @@
 <mat-card style=" height: 450px;">
   <mat-card-title style="text-align:center; margin-bottom:1em;">Person - Overview</mat-card-title>
-  <table style="width:100%;">
-    <tr>
-      <td rowspan="7" style="width:160px;">
-        <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">person</mat-icon>
-      </td>
-    </tr>
-    <tr>
-      <td><h3 class="person-overview">CPR-Nummer</h3></td>
-      <td><h3 class="person-overview">{{data.cprNumber}}</h3></td>
-    </tr>
-    <tr>
-      <td><h3 class="person-overview">Deptor ID</h3></td>
-      <td><h3 class="person-overview">{{data.personId}}</h3></td>
-    </tr>
-    <tr>
-      <td><h3 class="person-overview">Captia ID</h3></td>
-      <td><h3 class="person-overview">{{data.captiaId}}</h3></td>
-    </tr>
-    <tr>
-      <td><h3 class="person-overview">Name</h3></td>
-      <td><h3 class="person-overview">{{data.fullName}}</h3></td>
-    </tr>
-    <tr>
-      <td><h3 class="person-overview">Team Name</h3></td>
-      <td><h3 class="person-overview">{{data.team}}</h3></td>
-    </tr>
-  </table>
-
-  <ol>
-    <li *ngFor="let address of data.emailAddresses; index as i;">
-      {{i+1}}/{{data.emailAddresses.length}}   {{address.emailAddress}}
-    </li>
-  </ol>
-
-  <br />
-
-  <ol>
-    <li *ngFor="let address of data.addresses; index as i;">
-      {{i+1}}/{{data.addresses.length}}  {{address.address}}
-    </li>
-  </ol>
+  <app-persons-pages [id]="id"></app-persons-pages>
 </mat-card>

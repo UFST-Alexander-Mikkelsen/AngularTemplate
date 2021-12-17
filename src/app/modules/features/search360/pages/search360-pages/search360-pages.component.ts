@@ -19,7 +19,7 @@ export class Search360PagesComponent implements OnInit {
 
   currentPage$: ISearch360 = { url: '', id: '', name: '', types: '', page: 0, size: 10 };
   displayedColumns = ['personId', 'fullName', 'idNbrType', 'idNbr'];
-  dataSource$ = new Table<ISearch360Result>(this.store.select(fromSearch360.selectSearch360ResultWithPagination));
+  dataSource$ = new Table<ISearch360Result>(this.store.select(fromSearch360.selectSearch360ResultWithPagination), this.store.select(fromSearch360.selectSearch360IsLoading));
 
   ngOnInit() {
   }

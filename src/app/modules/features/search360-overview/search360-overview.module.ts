@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { Search360OverviewToDosComponent } from './components/search360-overview-to-dos/search360-overview-to-dos.component';
 import { ObligationsModule } from '../obligations/obligations.module';
 import { TodoModule } from '../todo/todo.module';
+import { PersonsModule } from '../persons/persons.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { TodoModule } from '../todo/todo.module';
     MatFormFieldModule,
     ObligationsModule,
     TodoModule,
+    PersonsModule,
   ]
 })
 export class Search360OverviewModule { }

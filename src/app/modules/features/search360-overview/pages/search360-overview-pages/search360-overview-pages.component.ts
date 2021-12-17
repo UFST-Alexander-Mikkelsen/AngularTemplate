@@ -11,7 +11,6 @@ import { Search360OverviewApiService } from '../../services/search360-overview-a
   styleUrls: ['./search360-overview-pages.component.scss']
 })
 export class Search360OverviewPagesComponent implements OnInit {
-  public search360OverviewAccount: ISearch360OverviewAccount;
   private routeSub: Subscription;
 
   id: string;
@@ -19,7 +18,6 @@ export class Search360OverviewPagesComponent implements OnInit {
 
   constructor(private search360OverviewApiService: Search360OverviewApiService,
     private route: ActivatedRoute,) {
-    this.search360OverviewAccount = search360OverviewApiService.getSearch360OverviewAccount();
     this.id = '';
     this.accountId = '';
 

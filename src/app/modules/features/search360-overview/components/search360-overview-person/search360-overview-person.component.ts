@@ -8,7 +8,7 @@ import { ISearch360OverviewAccount, Search360OverviewAccount } from '../../model
 })
 export class Search360OverviewPersonComponent implements OnInit {
   @Input()
-  public data: ISearch360OverviewAccount = new Search360OverviewAccount();
+  public id: string = '';
 
   constructor() { }
 

@@ -14,18 +14,4 @@ export class Search360OverviewApiService {
     private endpoints: Endpoints,
     private urls: CreateUrlService,
   ) { }
-
-  
-
-  getSearch360OverviewAccount(): ISearch360OverviewAccount {
-    return {
-      cprNumber: "080998-2010",
-      personId: "0208093",
-      captiaId: "0208093",
-      fullName: "Test Person",
-      team: "Test Team",
-      emailAddresses: [{ emailAddress: "testemail@doamin.com" }, { emailAddress: "testemail2@doamin.com" }],
-      addresses: [{ address: "skyldner test addresse" }, { address: "skyldner test addresse 2" }]
-    };
-  }
 }

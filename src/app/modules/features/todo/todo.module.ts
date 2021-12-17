@@ -10,7 +10,9 @@ import { TodoEffects } from './effects/todo.effects';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'; 
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatCheckboxModule,
     ReactiveFormsModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     TodoPagesComponent,
