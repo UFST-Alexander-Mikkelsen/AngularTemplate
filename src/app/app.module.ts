@@ -26,6 +26,8 @@ import { Search360Module } from './modules/features/search360/search360.module';
 import { Search360OverviewModule } from './modules/features/search360-overview/search360-overview.module';
 import { ObligationsModule } from './modules/features/obligations/obligations.module';
 import { TodoModule } from './modules/features/todo/todo.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { TodoModule } from './modules/features/todo/todo.module';
     ObligationsModule,
     Search360OverviewModule,
     TodoModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
     CoreModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreDevtoolsModule.instrument({
