@@ -1,37 +1,40 @@
-<div class="row">
-  <div class="column">
-    <table class="table1">
-      <tr>
-        <td><h3 class="person-overview" *ngIf="data$.person.idNumbers">CPR-Nummer</h3></td>
-        <td><h3 class="person-overview" *ngIf="data$.person.idNumbers">{{data$.person.idNumbers[0].personIdNumberPK?.id || 'Ikke Sat'}}</h3></td>
-      </tr>
-      <tr>
-        <td><h3 class="person-overview">Deptor ID</h3></td>
-        <td><h3 class="person-overview">{{data$.person?.personId || 'Ikke Sat' }}</h3></td>
-      </tr>
-      <tr>
-        <td><h3 class="person-overview" *ngIf="data$.person.idNumbers">Name</h3></td>
-        <td><h3 class="person-overview" *ngIf="data$.person.names">{{data$.person.names[0]?.fullName || 'Ikke Sat' }}</h3></td>
-      </tr>
-    </table>
-  </div>
-  <div class="column">
-    <table class="table2">
-      <tr>
-        <td><h3 class="person-overview">Current Balance</h3></td>
-        <td><h3 class="person-overview">{{data$?.totalSaldo || 'Ikke Sat'}}</h3></td>
-      </tr>
-      <tr>
-        <td><h3 class="person-overview">Payment Ability</h3></td>
-        <td><h3 class="person-overview">{{data$?.betalingsEvne || 'Ikke Sat' }}</h3></td>
-      </tr>
-      <tr>
-        <td><h3 class="person-overview">Calculated Payment Ability</h3></td>
-        <td><h3 class="person-overview">{{data$?.betalingsEvneCalc || 'Ikke Sat'}}</h3></td>
-      </tr>
-    </table>
+<div *ngIf="data$ !== undefined && data$.person !== undefined && data$.person.idNumbers !== undefined">
+  <div class="row background" [ngClass]="{'background-cpr ':data$.person.type == 'DK-PERSON   ', 'background-cvr': data$.person.type == 'DK-COMPANY  '}">
+    <div class="column">
+      <table class="table1">
+        <tr *ngFor="let idNumber of data$.person.idNumbers;">
+          <td><h3 class="person-overview" *ngIf="data$.person.idNumbers">{{idNumber.idType || 'Ikke Sat'}}</h3></td>
+          <td><h3 class="person-overview" *ngIf="data$.person.idNumbers">{{idNumber.idNumber || 'Ikke Sat'}}</h3></td>
+        </tr>
+        <tr>
+          <td><h3 class="person-overview">Deptor ID</h3></td>
+          <td><h3 class="person-overview">{{data$.person?.personId || 'Ikke Sat' }}</h3></td>
+        </tr>
+        <tr>
+          <td><h3 class="person-overview" *ngIf="data$.person.idNumbers">Name</h3></td>
+          <td><h3 class="person-overview" *ngIf="data$.person.names">{{data$.person.names[0]?.fullName || 'Ikke Sat' }}</h3></td>
+        </tr>
+      </table>
+    </div>
+    <div class="column">
+      <table class="table2">
+        <tr>
+          <td><h3 class="person-overview">Current Balance</h3></td>
+          <td><h3 class="person-overview">{{data$?.totalSaldo || 'Ikke Sat'}}</h3></td>
+        </tr>
+        <tr>
+          <td><h3 class="person-overview">Payment Ability</h3></td>
+          <td><h3 class="person-overview">{{data$?.betalingsEvne || 'Ikke Sat' }}</h3></td>
+        </tr>
+        <tr>
+          <td><h3 class="person-overview">Calculated Payment Ability</h3></td>
+          <td><h3 class="person-overview">{{data$?.betalingsEvneCalc || 'Ikke Sat'}}</h3></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
+<h1 style="text-align:center" *ngIf="data$.person === undefined">Kunne ikke finde noget data</h1>
 
 
 

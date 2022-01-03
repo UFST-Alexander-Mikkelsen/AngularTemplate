@@ -1,8 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { Table } from '../../../../shared/models/simple-table/table';
 import { loadPersons } from '../../actions/persons.actions';
 import { IContent, IPerson, IPersonResult } from '../../models/person';
 import { PersonsApiService } from '../../services/persons-api.service';
