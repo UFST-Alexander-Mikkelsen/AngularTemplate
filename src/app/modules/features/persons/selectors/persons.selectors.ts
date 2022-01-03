@@ -17,7 +17,7 @@ export const selectPersonListWithPagination = createSelector(
 
 export const selectFirstPerson = createSelector(
   getPersonState,
-  state => state.personsResultWithPagination?.content[0]
+  state => state.personsResultWithPagination?.content
 )
 
 export const selectPersonError = createSelector(

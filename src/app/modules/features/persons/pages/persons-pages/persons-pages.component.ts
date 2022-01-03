@@ -21,9 +21,13 @@ export class PersonsPagesComponent implements OnInit {
 
 
   constructor(private store: Store<IPersonResult[]>, private personApiService: PersonsApiService) {
-    this.store.select(fromPerson.selectFirstPerson).subscribe((data) =>
-      this.data$ = data
-    );
+    this.store.select(fromPerson.selectPersonListWithPagination).subscribe((data) => {
+      if (data.content) {
+        this.data$ = data.content[0];
+        console.log("test");
+      }
+    });
+    //console.log("test", this.store.select(fromPerson.selectFirstPerson));
   }
 
   ngOnInit(): void {
@@ -34,6 +38,7 @@ export class PersonsPagesComponent implements OnInit {
   getPerson() {
     let person: IPerson = Object.assign({}, this.currentPage$);
     this.store.dispatch(loadPersons({ person }));
+    console.log("getPerson");
   }
 
 }

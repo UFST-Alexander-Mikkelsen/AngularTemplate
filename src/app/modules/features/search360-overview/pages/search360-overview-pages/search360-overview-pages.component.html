@@ -1,28 +1,33 @@
-<mat-tab-group mat-align-tabs="center" cols="2"  class="content">
+<mat-tab-group mat-align-tabs="center" cols="2" class="content">
   <mat-tab label="Person - Account">
-    <mat-grid-list cols="2" rowHeight="500px">
-
-      <mat-grid-tile [colspan]="2">
-        <app-search360-overview-person [id]="id" class="card"></app-search360-overview-person>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-        <app-search360-overview-notes class="card"></app-search360-overview-notes>
-      </mat-grid-tile>
-
-      <mat-grid-tile>
-        <app-search360-overview-documents class="card"></app-search360-overview-documents>
-      </mat-grid-tile>
-
-      <mat-grid-tile [colspan]="2">
-        <app-search360-overview-to-dos *ngIf="accountId !=''" [accountId]="accountId" class="card" ></app-search360-overview-to-dos>
-      </mat-grid-tile>
-
-    </mat-grid-list>
+    <div class="tab-content">
+      <table>
+        <tr>
+          <td colspan="2">
+            <app-search360-overview-person [id]="id" class="card"></app-search360-overview-person>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <app-search360-overview-to-dos *ngIf="accountId !=''" [accountId]="accountId" class="card"></app-search360-overview-to-dos>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <app-search360-overview-notes class="card"></app-search360-overview-notes>
+          </td>
+          <td>
+            <app-search360-overview-documents class="card"></app-search360-overview-documents>
+          </td>
+        </tr>
+      </table>
+    </div>
   </mat-tab>
 
   <mat-tab label="Obligations">
-    <app-obligation-pages *ngIf="accountId !=''" [id]="accountId"></app-obligation-pages>
+    <div class="tab-content">
+      <app-obligation-pages *ngIf="accountId !=''" [id]="accountId"></app-obligation-pages>
+    </div>
   </mat-tab>
 
   <mat-tab label="Financial Information">
