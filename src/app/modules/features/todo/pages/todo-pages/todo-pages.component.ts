@@ -16,7 +16,7 @@ export class TodoPagesComponent implements OnInit {
 
   @Input() id: string = '';
   currentPage$: ITodo = { url: '', id: '', page: 0, size: 25 };
-  displayedColumns = ['id', 'assignedTo', 'tdTypeCd', 'entryStatusFlg', 'comments', 'description'];
+  displayedColumns = ['id', 'description', 'tdTypeCd', 'entryStatusFlg', 'comments', 'assignedTo'];
   dataSource$ = new Table<ITodoResult>(this.store.select(fromTodo.selectTodoListWithPagination), this.store.select(fromTodo.selectTodoIsLoading));
 
   constructor(private store: Store<ITodoResult[]>, private todoApiService: TodoApiService) {
