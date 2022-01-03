@@ -3,7 +3,7 @@ import { Page } from '../../../shared/models/simple-table/simple-data-source';
 import * as Persons from '../actions/persons.actions';
 import { IContent, IPersonResult } from '../models/person';
 
-export const personFeatureKey = 'obligation';
+export const personFeatureKey = 'person';
 
 export interface State {
   personsResultWithPagination: Page<IContent>;
