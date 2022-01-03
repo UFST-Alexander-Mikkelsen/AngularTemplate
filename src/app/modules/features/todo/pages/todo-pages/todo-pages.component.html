@@ -7,7 +7,7 @@
   </ng-container>
 
   <ng-container matColumnDef="assignedTo">
-    <mat-header-cell mat-header-cell *matHeaderCellDef> External Claim ID </mat-header-cell>
+    <mat-header-cell mat-header-cell *matHeaderCellDef> Assigned To </mat-header-cell>
     <mat-cell mat-cell *matCellDef="let todo"> {{todo.assignedTo}} </mat-cell>
   </ng-container>
 
@@ -17,23 +17,18 @@
   </ng-container>
 
   <ng-container matColumnDef="entryStatusFlg">
-    <mat-header-cell mat-header-cell *matHeaderCellDef> Fordrings Haver Ref </mat-header-cell>
+    <mat-header-cell mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
     <mat-cell mat-cell *matCellDef="let todo"> {{todo.entryStatusFlg }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="comments">
-    <mat-header-cell mat-header-cell *matHeaderCellDef> Original Amount </mat-header-cell>
+    <mat-header-cell mat-header-cell *matHeaderCellDef>Comment</mat-header-cell>
     <mat-cell mat-cell *matCellDef="let todo"> {{todo.comments}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="description">
-    <mat-header-cell mat-header-cell *matHeaderCellDef> Current Amount </mat-header-cell>
+    <mat-header-cell mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
     <mat-cell mat-cell *matCellDef="let todo"> {{todo.description}} </mat-cell>
-  </ng-container>
-
-  <ng-container matColumnDef="tdPriorityFlg">
-    <mat-header-cell mat-header-cell *matHeaderCellDef> Current Amount </mat-header-cell>
-    <mat-cell mat-cell *matCellDef="let todo"> {{todo.tdPriorityFlg}} </mat-cell>
   </ng-container>
 
   <mat-header-row mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

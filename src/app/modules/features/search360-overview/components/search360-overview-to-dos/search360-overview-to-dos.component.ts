@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class Search360OverviewToDosComponent implements OnInit {
   @Input()
-  accountId :string ='';
+  id :string ='';
   constructor() { }
 
   ngOnInit(): void {
