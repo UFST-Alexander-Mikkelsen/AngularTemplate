@@ -9,7 +9,7 @@
 
   <ng-container matColumnDef="claimId">
     <mat-header-cell mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-    <mat-cell mat-cell *matCellDef="let obligation"> {{obligation.claimId}} </mat-cell>
+    <mat-cell mat-cell *matCellDef="let obligation">{{obligation.claimId}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="externalClaimId">
@@ -58,7 +58,18 @@
   </ng-container>
 
   <mat-header-row mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;">
+  <mat-row *matRowDef="let row; columns: displayedColumns;"
+           [class.hidden]="
+           row.fordringTo === null
+           && row.fordringFrom === null
+           && row.modtagelsesTidspunkt === null
+           && row.fordringFrom === null
+           && row.externalClaimId === null
+           && row.fordringsTypeKode === null
+           && row.fordringshaverRef === null
+           && row.originalAmount === null
+           && row.currentAmount === null">
+    
   </mat-row>
 </mat-table>
 
